@@ -1,5 +1,5 @@
 # Utiliser une version stable de Python
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 # Empêcher Python de générer des fichiers .pyc
 ENV PYTHONDONTWRITEBYTECODE 1
