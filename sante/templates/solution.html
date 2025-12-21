@@ -1044,6 +1044,10 @@
   </style>
 </head>
 <body>
+  <form method="POST">
+    {% csrf_token %} <input type="text" name="nom_du_traitement">
+    <button type="submit">Enregistrer</button>
+</form>
   <!-- Notification System -->
   <div id="notificationContainer"></div>
 
