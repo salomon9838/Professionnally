@@ -1,5 +1,5 @@
 import os
-import dj_database_url  # Import nécessaire pour Render
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -8,20 +8,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-c61(kdbw3(pc3q5c&^s23b26bot3-o26rd^7*fzht&+3ay9c#^')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG sera False sur Render si vous ajoutez la variable d'environnement RENDER=True
+# Mode DEBUG : False en production (sur Render), True en local
 DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = ['*']
 
-# Sur Render, on ajoute le nom d'hôte spécifique si nécessaire
+# Configuration spécifique pour Render
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 INSTALLED_APPS = [
-    'sante',  # Assurez-vous que le dossier s'appelle bien 'sante' sur GitHub
+    'sante',  
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -34,7 +33,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Pour les fichiers statiques sur Render
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Indispensable pour les fichiers statiques
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,7 +62,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'propri.wsgi.application'
 
-# Database configuration
+# Database
 # Utilise DATABASE_URL sur Render, sinon utilise votre PostgreSQL local
 DATABASES = {
     'default': dj_database_url.config(
@@ -81,7 +80,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr' # Mis en français pour plus de confort
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
@@ -89,10 +88,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Configuration WhiteNoise pour servir les fichiers statiques sans erreur
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-<<<<<<< HEAD
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-=======
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
->>>>>>> 0333a6e821d829ec1bde6ba2abbb9ac18070172b
