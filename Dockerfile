@@ -23,4 +23,4 @@ RUN python manage.py collectstatic --noinput
 
 # Lancer l'application avec Gunicorn (Vérifiez bien que le nom est 'propri')
 # Cette commande force la migration avant de lancer le serveur
-CMD python manage.py migrate && gunicorn propri.wsgi:application --bind 0.0.0.0:8000
+CMD python manage.py migrate && python init_admin.py && gunicorn propri.wsgi:application --bind 0.0.0.0:8000
