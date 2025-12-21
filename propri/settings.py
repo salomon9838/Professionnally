@@ -11,7 +11,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-c61(kdbw3(pc3q5c&^s23
 # Mode DEBUG : False en production (sur Render), True en local
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['traitements.onrender.com', 'localhost', '127.0.0.1']
 
 # Configuration spécifique pour Render
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
