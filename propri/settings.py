@@ -6,22 +6,29 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-c61(kdbw3(pc3q5c&^s23b26bot3-o26rd^7*fzht&+3ay9c#^')
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-c61(kdbw3(pc3q5c&^s23b26bot3-o26rd^7*fzht&+3ay9c#^'
+)
 
-# Mode DEBUG : False en production (sur Render), True en local
+# DEBUG : False sur Render, True en local
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['medicalclub.onrender.com
-', 'localhost', '127.0.0.1']
+# Hosts autorisés
+ALLOWED_HOSTS = [
+    'medicalclub.onrender.com',
+    'localhost',
+    '127.0.0.1'
+]
 
-# Configuration spécifique pour Render
+# Render fournit automatiquement ce hostname
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 INSTALLED_APPS = [
-    'sante',  
+    'sante',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -34,7 +41,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Indispensable pour les fichiers statiques
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,13 +71,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'propri.wsgi.application'
 
 # Database
-# Correction : On vérifie d'abord si DATABASE_URL existe sur Render
 DATABASES = {
     'default': dj_database_url.config(
-        # Cette URL par défaut n'est utilisée que si DATABASE_URL n'est pas trouvée
         default='postgresql://postgres:sam9838*@localhost:5432/medical',
         conn_max_age=600,
-        ssl_require=True if 'RENDER' in os.environ else False
+        ssl_require='RENDER' in os.environ
     )
 }
 
@@ -88,16 +93,17 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Static files
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Configuration WhiteNoise pour servir les fichiers statiques
-# Utilisation de la version compatible avec les versions récentes de Django/WhiteNoise
+# WhiteNoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Configuration CSRF pour Render (évite les erreurs 403 lors de la connexion admin)
-CSRF_TRUSTED_ORIGINS = ['https://medicalclub.onrender.com']
+# CSRF (important pour l’admin Django sur Render)
+CSRF_TRUSTED_ORIGINS = [
+    'https://medicalclub.onrender.com'
+]
