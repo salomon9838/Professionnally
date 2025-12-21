@@ -11,7 +11,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-c61(kdbw3(pc3q5c&^s23
 # Mode DEBUG : False en production (sur Render), True en local
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['traitements.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['medicalclub.onrender.com
+', 'localhost', '127.0.0.1']
 
 # Configuration spécifique pour Render
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -63,11 +64,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'propri.wsgi.application'
 
 # Database
-# Utilise DATABASE_URL sur Render, sinon utilise votre PostgreSQL local
+# Correction : On vérifie d'abord si DATABASE_URL existe sur Render
 DATABASES = {
     'default': dj_database_url.config(
+        # Cette URL par défaut n'est utilisée que si DATABASE_URL n'est pas trouvée
         default='postgresql://postgres:sam9838*@localhost:5432/medical',
-        conn_max_age=600
+        conn_max_age=600,
+        ssl_require=True if 'RENDER' in os.environ else False
     )
 }
 
@@ -80,7 +83,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-LANGUAGE_CODE = 'fr-fr' # Mis en français pour plus de confort
+LANGUAGE_CODE = 'fr-fr'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
@@ -89,8 +92,12 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Configuration WhiteNoise pour servir les fichiers statiques sans erreur
+# Configuration WhiteNoise pour servir les fichiers statiques
+# Utilisation de la version compatible avec les versions récentes de Django/WhiteNoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuration CSRF pour Render (évite les erreurs 403 lors de la connexion admin)
+CSRF_TRUSTED_ORIGINS = ['https://medicalclub.onrender.com']
