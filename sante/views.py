@@ -7,6 +7,22 @@ from rest_framework import status
 from django.http import JsonResponse
 from .models import ThemeConfig
 
+from django.shortcuts import render, redirect
+from .models import Traitement # Importez votre modèle
+
+def ma_page_saisie(request):
+    if request.method == 'POST':
+        # 1. Récupérer les données du formulaire
+        nom = request.POST.get('nom_du_traitement')
+        
+        # 2. Créer l'objet dans la base de données
+        Traitement.objects.create(nom=nom) # Ceci envoie la donnée vers Postgres
+        
+        # 3. Rediriger pour confirmer le succès
+        return redirect('succes') 
+        
+    return render(request, 'solution.html')
+
 def get_theme(request):
     theme = ThemeConfig.objects.first() # Récupère le thème actif
     data = {
