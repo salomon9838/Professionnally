@@ -110,46 +110,6 @@
     .mb-6 { margin-bottom: 1.5rem; }
     .my-6 { margin: 1.5rem 0; }
 
-    /* NEW: Uppercase input styling */
-    .uppercase-input {
-      text-transform: uppercase !important;
-    }
-    
-    .uppercase-input::placeholder {
-      text-transform: none;
-    }
-
-    /* Table styling improvements */
-    .word-like-table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 1rem 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      background: white;
-    }
-    
-    .word-like-table th {
-      background: var(--primary-light);
-      color: var(--primary);
-      font-weight: 600;
-      padding: 12px 15px;
-      border: 1px solid #dee2e6;
-      text-align: left;
-    }
-    
-    .word-like-table td {
-      padding: 10px 15px;
-      border: 1px solid #dee2e6;
-    }
-    
-    .word-like-table tr:nth-child(even) {
-      background-color: #f8f9fa;
-    }
-    
-    .word-like-table tr:hover {
-      background-color: #e9ecef;
-    }
-
     /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -319,29 +279,6 @@
         var(--primary) 100%);
       background-size: 200% auto;
       animation: shimmer 3s infinite linear;
-    }
-
-    /* NEW: PDF/Word buttons */
-    .btn-pdf {
-      background: linear-gradient(135deg, #e63946 0%, #d62839 100%);
-      color: white;
-      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
-    }
-    
-    .btn-pdf:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(230, 57, 70, 0.25);
-    }
-    
-    .btn-word {
-      background: linear-gradient(135deg, #2b579a 0%, #1e4a8f 100%);
-      color: white;
-      box-shadow: 0 4px 12px rgba(43, 87, 154, 0.3);
-    }
-    
-    .btn-word:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(43, 87, 154, 0.25);
     }
 
     /* Alerts */
@@ -1006,132 +943,6 @@
       transition: width 0.3s ease;
     }
 
-    /* NEW: Age input styling */
-    .age-input-group {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-    
-    .age-input-group input {
-      flex: 1;
-    }
-    
-    .age-input-group select {
-      flex: 0.5;
-    }
-
-    /* NEW: Service-specific templates */
-    .template-buttons {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* NEW: Patient info header */
-    .patient-info-header {
-      background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
-      color: white;
-      padding: 1.5rem;
-      border-radius: var(--radius);
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-    
-    .patient-info-header h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .patient-info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .patient-info-item {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.75rem;
-      border-radius: var(--radius-sm);
-      backdrop-filter: blur(10px);
-    }
-    
-    .patient-info-item label {
-      font-size: 0.8rem;
-      opacity: 0.9;
-      margin-bottom: 0.25rem;
-      display: block;
-    }
-    
-    .patient-info-item p {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    /* NEW: Blood group styling */
-    .blood-group-selector {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .blood-group-btn {
-      padding: 0.5rem 1rem;
-      border: 2px solid #dee2e6;
-      background: white;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: var(--transition);
-      font-weight: 600;
-    }
-    
-    .blood-group-btn.selected {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-    
-    .blood-group-btn:hover:not(.selected) {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* NEW: Server sync indicator */
-    .sync-indicator {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      padding: 0.75rem 1.25rem;
-      border-radius: 50px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 1000;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    
-    .sync-indicator.syncing {
-      animation: pulse 2s infinite;
-    }
-    
-    .sync-indicator.synced {
-      background: linear-gradient(135deg, #198754 0%, #146c43 100%);
-      color: white;
-    }
-    
-    .sync-indicator.error {
-      background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
-      color: white;
-    }
-
     /* Responsive */
     @media (max-width: 1024px) {
       .filters-grid {
@@ -1164,12 +975,6 @@
       .nav-breadcrumb {
         flex-wrap: wrap;
       }
-      .patient-info-grid {
-        grid-template-columns: 1fr;
-      }
-      .template-buttons {
-        flex-direction: column;
-      }
     }
 
     @media (max-width: 480px) {
@@ -1184,10 +989,6 @@
         left: 20px;
         right: 20px;
         max-width: none;
-      }
-      .editor-toolbar {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
 
@@ -1220,12 +1021,6 @@
     .grid-cols-2 {
       grid-template-columns: repeat(2, 1fr);
     }
-    .grid-cols-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .grid-cols-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
     
     .min-w-\[200px\] {
       min-width: 200px;
@@ -1253,12 +1048,6 @@
   <!-- Notification System -->
   <div id="notificationContainer"></div>
 
-  <!-- Sync Indicator -->
-  <div id="syncIndicator" class="sync-indicator hidden">
-    <i class="fas fa-sync"></i>
-    <span>Connexion...</span>
-  </div>
-
   <!-- Auth Screen -->
   <div id="authScreen" class="flex items-center justify-center">
     <div class="auth-container">
@@ -1273,11 +1062,11 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div class="form-group">
               <label>Prénom *</label>
-              <input type="text" id="regFirstName" class="form-control uppercase-input" required />
+              <input type="text" id="regFirstName" class="form-control" required />
             </div>
             <div class="form-group">
               <label>Nom *</label>
-              <input type="text" id="regLastName" class="form-control uppercase-input" required />
+              <input type="text" id="regLastName" class="form-control" required />
             </div>
           </div>
           
@@ -1300,16 +1089,9 @@
             <div class="form-group">
               <label>Rôle *</label>
               <select id="regRole" class="form-control">
-                <option>Professeur</option>
                 <option>Médecin</option>
-                <option>Infirmier(ère)</option>
-                <option>TSO</option>
-                <option>TAR</option>
-                <option>TRIM</option>
-                <option>Sage-femme</option>
-                <option>Orthophoniste</option>
-                <option>Kiné</option>
-                <option>Opticien</option>
+                <option>Infirmier</option>
+                <option>Pharmacien</option>
                 <option>Administrateur</option>
               </select>
             </div>
@@ -1318,42 +1100,42 @@
           <div class="form-group mb-4">
             <label>Service *</label>
             <select id="regService" class="form-control">
-              <option>Anesthésie-Réanimation</option>
-              <option>Anatomo-pathologie</option>
-              <option>Administration</option>
-              <option>Autre</option>
+              <option>Urgences</option>
+              <option>Consultation générale</option>
+              <option>Médecine Interne</option>
               <option>Cardiologie</option>
+              <option>Pneumologie</option>
+              <option>Rhumatologie</option>
+              <option>Neurologie</option>
+              <option>Néphrologie</option>
+              <option>Dermatologie</option>
+              <option>Hématologie</option>
+              <option>Pédiatrie</option>
+              <option>Traumatologie</option>
+              <option>Urologie</option>
+              <option>Anesthésie-Réanimation</option>
+              <option>Ophtalmologie</option>
+              <option>Radiologie/Imagerie médicale</option>
+              <option>Anatomo-pathologie</option>
+              <option>Odontologie/Stomatologie</option>
+              <option>Gynécologie</option>
+              <option>Laboratoire</option>
+              <option>Kinésithérapie</option>
+              <option>Optométrie</option>
+              <option>Sage-femme/Obstétrique</option>
+              <option>ORL</option>
+              <option>Psychiatrie</option>
+              <option>Gastroentérologie</option>
+              <option>Neurochirurgie</option>
+              <option>Infertilité</option>
               <option>Chirurgie générale</option>
               <option>Chirurgie pédiatrique</option>
               <option>Chirurgie Viscérale</option>
-              <option>Consultation générale</option>
-              <option>Dermatologie</option>
-              <option>Gastroentérologie</option>
-              <option>Gynécologie</option>
-              <option>Hématologie</option>
-              <option>Infertilité</option>
-              <option>Kinésithérapie</option>
-              <option>Laboratoire</option>
-              <option>Médecine Interne</option>
-              <option>Néphrologie</option>
-              <option>Neurochirurgie</option>
-              <option>Neurologie</option>
-              <option>Odontologie/Stomatologie</option>
-              <option>Ophtalmologie</option>
-              <option>Optométrie</option>
-              <option>ORL</option>
-              <option>Pédiatrie</option>
-              <option>Pneumologie</option>
-              <option>Psychiatrie</option>
-              <option>Radiologie/Imagerie médicale</option>
               <option>Réanimation médicale et polysalle</option>
-              <option>Rhumatologie</option>
-              <option>Sage-femme/Obstétrique</option>
               <option>Scanner</option>
               <option>Transfusion sanguine</option>
-              <option>Traumatologie</option>
-              <option>Urgences</option>
-              <option>Urologie</option>
+              <option>Administration</option>
+              <option>Autre</option>
             </select>
           </div>
           
@@ -1471,19 +1253,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div class="form-group">
                 <label>Nom complet du patient *</label>
-                <input type="text" id="patientName" class="form-control uppercase-input" required />
+                <input type="text" id="patientName" class="form-control" required />
               </div>
               <div class="form-group">
                 <label>Âge *</label>
-                <div class="age-input-group">
-                  <input type="number" id="patientAge" class="form-control" required min="0" max="120" placeholder="Âge" />
-                  <select id="patientAgeUnit" class="form-control">
-                    <option value="ans">Ans</option>
-                    <option value="mois">Mois</option>
-                    <option value="jours">Jours</option>
-                    <option value="heures">Heures</option>
-                  </select>
-                </div>
+                <input type="number" id="patientAge" class="form-control" required min="0" max="120" />
               </div>
             </div>
             
@@ -1497,7 +1271,7 @@
               </div>
               <div class="form-group">
                 <label>Profession</label>
-                <input type="text" id="patientProfession" class="form-control uppercase-input" />
+                <input type="text" id="patientProfession" class="form-control" />
               </div>
             </div>
             
@@ -1508,74 +1282,49 @@
               </div>
               <div class="form-group">
                 <label>Adresse</label>
-                <input type="text" id="patientAddress" class="form-control uppercase-input" />
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div class="form-group">
-                <label>Groupe Sanguin</label>
-                <div class="blood-group-selector">
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('A+')">A+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('A-')">A-</button>
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('B+')">B+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('B-')">B-</button>
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('AB+')">AB+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('AB-')">AB-</button>
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('O+')">O+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectBloodGroup('O-')">O-</button>
-                </div>
-                <input type="hidden" id="patientBloodGroup" />
-              </div>
-              <div class="form-group">
-                <label>Rhésus</label>
-                <select id="patientRhesus" class="form-control">
-                  <option value="">Sélectionner</option>
-                  <option value="+">Positif (+)</option>
-                  <option value="-">Négatif (-)</option>
-                </select>
+                <input type="text" id="patientAddress" class="form-control" />
               </div>
             </div>
             
             <div class="form-group mb-6">
               <label>Service d'enregistrement initial *</label>
               <select id="serviceType" class="form-control" required>
-                <option>Anesthésie-Réanimation</option>
-                <option>Anatomo-pathologie</option>
-                <option>Administration</option>
-                <option>Autre</option>
+                <option>Urgences</option>
+                <option>Consultation générale</option>
+                <option>Médecine Interne</option>
                 <option>Cardiologie</option>
+                <option>Pneumologie</option>
+                <option>Rhumatologie</option>
+                <option>Neurologie</option>
+                <option>Néphrologie</option>
+                <option>Dermatologie</option>
+                <option>Hématologie</option>
+                <option>Pédiatrie</option>
+                <option>Traumatologie</option>
+                <option>Urologie</option>
+                <option>Anesthésie-Réanimation</option>
+                <option>Ophtalmologie</option>
+                <option>Radiologie/Imagerie médicale</option>
+                <option>Anatomo-pathologie</option>
+                <option>Odontologie/Stomatologie</option>
+                <option>Gynécologie</option>
+                <option>Laboratoire</option>
+                <option>Kinésithérapie</option>
+                <option>Optométrie</option>
+                <option>Sage-femme/Obstétrique</option>
+                <option>ORL</option>
+                <option>Psychiatrie</option>
+                <option>Gastroentérologie</option>
+                <option>Neurochirurgie</option>
+                <option>Infertilité</option>
                 <option>Chirurgie générale</option>
                 <option>Chirurgie pédiatrique</option>
                 <option>Chirurgie Viscérale</option>
-                <option>Consultation générale</option>
-                <option>Dermatologie</option>
-                <option>Gastroentérologie</option>
-                <option>Gynécologie</option>
-                <option>Hématologie</option>
-                <option>Infertilité</option>
-                <option>Kinésithérapie</option>
-                <option>Laboratoire</option>
-                <option>Médecine Interne</option>
-                <option>Néphrologie</option>
-                <option>Neurochirurgie</option>
-                <option>Neurologie</option>
-                <option>Odontologie/Stomatologie</option>
-                <option>Ophtalmologie</option>
-                <option>Optométrie</option>
-                <option>ORL</option>
-                <option>Pédiatrie</option>
-                <option>Pneumologie</option>
-                <option>Psychiatrie</option>
-                <option>Radiologie/Imagerie médicale</option>
                 <option>Réanimation médicale et polysalle</option>
-                <option>Rhumatologie</option>
-                <option>Sage-femme/Obstétrique</option>
                 <option>Scanner</option>
                 <option>Transfusion sanguine</option>
-                <option>Traumatologie</option>
-                <option>Urgences</option>
-                <option>Urologie</option>
+                <option>Administration</option>
+                <option>Autre</option>
               </select>
             </div>
             
@@ -1592,40 +1341,22 @@
         </div>
       </div>
 
-      <!-- Patient Info Header (Displayed in Prescription Editor) -->
-      <div id="patientInfoHeader" class="patient-info-header hidden">
-        <h3><i class="fas fa-user-injured"></i> Informations du Patient</h3>
-        <div class="patient-info-grid" id="patientInfoContent">
-          <!-- Patient info will be dynamically inserted here -->
-        </div>
-      </div>
-
       <!-- Prescription Editor -->
       <div id="prescriptionEditor" class="content-area">
         <div class="content-header">
           <h2><i class="fas fa-file-medical"></i> Éditeur de Prescription</h2>
           <p id="currentPatientNameDisplay2" class="text-gray"></p>
         </div>
-        
-        <!-- Service-specific Templates -->
-        <div id="templateButtons" class="template-buttons"></div>
-        
         <div class="glass p-6 rounded-xl shadow hover-lift">
           <div class="editor-toolbar">
             <button class="btn btn-secondary animate-pulse" onclick="addSection()">
               <i class="fas fa-plus"></i> Ajouter Section
             </button>
-            <button class="btn btn-secondary animate-pulse" onclick="addWordLikeTable()">
+            <button class="btn btn-secondary animate-pulse" onclick="addTable()">
               <i class="fas fa-table"></i> Ajouter Tableau
             </button>
-            <button class="btn btn-outline" onclick="showEditPatientModal()">
+            <button class="btn btn-outline" onclick="showSection('newConsultation')">
               <i class="fas fa-edit"></i> Modifier Patient
-            </button>
-            <button class="btn btn-word" onclick="exportToWord()">
-              <i class="fas fa-file-word"></i> Exporter Word
-            </button>
-            <button class="btn btn-pdf" onclick="exportToPDF()">
-              <i class="fas fa-file-pdf"></i> Exporter PDF
             </button>
           </div>
           
@@ -1654,18 +1385,18 @@
           <form onsubmit="event.preventDefault(); saveConsultation();">
             <div class="form-group mb-6">
               <label>Type de maladie *</label>
-              <input type="text" id="diseaseType" class="form-control uppercase-input" required />
+              <input type="text" id="diseaseType" class="form-control" required />
             </div>
             
             <div class="form-group mb-6">
               <label>Observations utiles</label>
-              <textarea id="summaryText" class="form-control uppercase-input" rows="3" placeholder="Notes additionnelles sur l'état du patient..."></textarea>
+              <textarea id="summaryText" class="form-control" rows="3" placeholder="Notes additionnelles sur l'état du patient..."></textarea>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div class="form-group">
                 <label>Nom du soignant *</label>
-                <input type="text" id="doctorName" class="form-control uppercase-input" required readonly />
+                <input type="text" id="doctorName" class="form-control" required />
               </div>
               <div class="form-group">
                 <label>Contact du soignant</label>
@@ -1676,11 +1407,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div class="form-group">
                 <label>Service (Consultation) *</label>
-                <input type="text" id="doctorService" class="form-control uppercase-input" required readonly />
+                <input type="text" id="doctorService" class="form-control" required readonly />
               </div>
               <div class="form-group">
                 <label>Centre de consultation *</label>
-                <input type="text" id="consultationCenter" class="form-control uppercase-input" required />
+                <input type="text" id="consultationCenter" class="form-control" required />
               </div>
             </div>
             
@@ -1706,7 +1437,7 @@
         <div class="filters-container mb-6 animate-slideIn">
           <div class="form-group">
             <label><i class="fas fa-search"></i> Rechercher un patient (nom, ID, téléphone)</label>
-            <input type="text" id="searchInput" class="form-control uppercase-input" oninput="debouncedSearch()" 
+            <input type="text" id="searchInput" class="form-control" oninput="debouncedSearch()" 
                    placeholder="Entrez au moins 2 caractères..." />
           </div>
         </div>
@@ -1740,7 +1471,7 @@
           <div class="filters-grid">
             <div class="form-group">
               <label><i class="fas fa-disease"></i> Maladie</label>
-              <input type="text" id="diseaseSearchInput" class="form-control uppercase-input" oninput="debouncedUpdateStats()" placeholder="Rechercher..." />
+              <input type="text" id="diseaseSearchInput" class="form-control" oninput="debouncedUpdateStats()" placeholder="Rechercher..." />
             </div>
             <div class="form-group">
               <label><i class="fas fa-calendar-alt"></i> Date de début</label>
@@ -1918,109 +1649,11 @@
       </div>
     </div>
 
-    <!-- Edit Patient Modal -->
-    <div id="editPatientModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-6">
-            <h3 class="text-2xl font-bold text-primary">
-              <i class="fas fa-edit"></i> Modifier Patient
-            </h3>
-            <button onclick="closeEditPatientModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-          
-          <form id="editPatientForm">
-            <div class="form-group mb-4">
-              <label>Nom complet du patient</label>
-              <input type="text" id="editPatientName" class="form-control uppercase-input" readonly />
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div class="form-group">
-                <label>Sexe</label>
-                <input type="text" id="editPatientGender" class="form-control uppercase-input" readonly />
-              </div>
-              <div class="form-group">
-                <label>Âge *</label>
-                <div class="age-input-group">
-                  <input type="number" id="editPatientAge" class="form-control" required min="0" max="120" placeholder="Âge" />
-                  <select id="editPatientAgeUnit" class="form-control">
-                    <option value="ans">Ans</option>
-                    <option value="mois">Mois</option>
-                    <option value="jours">Jours</option>
-                    <option value="heures">Heures</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div class="form-group">
-                <label>Profession</label>
-                <input type="text" id="editPatientProfession" class="form-control uppercase-input" />
-              </div>
-              <div class="form-group">
-                <label>Téléphone</label>
-                <input type="text" id="editPatientPhone" class="form-control" />
-              </div>
-            </div>
-            
-            <div class="form-group mb-4">
-              <label>Adresse</label>
-              <input type="text" id="editPatientAddress" class="form-control uppercase-input" />
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div class="form-group">
-                <label>Groupe Sanguin</label>
-                <div class="blood-group-selector">
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('A+')">A+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('A-')">A-</button>
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('B+')">B+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('B-')">B-</button>
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('AB+')">AB+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('AB-')">AB-</button>
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('O+')">O+</button>
-                  <button type="button" class="blood-group-btn" onclick="selectEditBloodGroup('O-')">O-</button>
-                </div>
-                <input type="hidden" id="editPatientBloodGroup" />
-              </div>
-              <div class="form-group">
-                <label>Rhésus</label>
-                <select id="editPatientRhesus" class="form-control">
-                  <option value="">Sélectionner</option>
-                  <option value="+">Positif (+)</option>
-                  <option value="-">Négatif (-)</option>
-                </select>
-              </div>
-            </div>
-            
-            <div id="editPatientAlert"></div>
-            <div class="flex gap-3 mt-6">
-              <button type="submit" class="btn btn-primary flex-1">
-                <i class="fas fa-save"></i> Enregistrer modifications
-              </button>
-              <button type="button" class="btn btn-outline" onclick="closeEditPatientModal()">
-                <i class="fas fa-times"></i> Annuler
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
     <div class="app-footer">
       <p><i class="fas fa-heartbeat text-primary"></i> MediTrack Pro &copy; 2025 — Système de gestion médicale sécurisé</p>
       <p class="text-sm mt-2 text-gray-500">Version 2.0 • <span id="currentYear"></span></p>
     </div>
   </div>
-
-  <!-- External Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docx@7.8.0/build/index.min.js"></script>
 
   <script>
     // ==================================
@@ -2035,148 +1668,6 @@
     let searchTimeout = null;
     let statsTimeout = null;
     let currentSection = 'mainMenu';
-    let selectedBloodGroup = '';
-    let selectedEditBloodGroup = '';
-
-    // ================================
-    // NOUVELLE FONCTIONNALITÉ : INTEROPÉRABILITÉ
-    // ================================
-    // Simulation d'une base de données partagée (en production, remplacer par un vrai backend)
-    const SERVER_URL = 'https://jsonplaceholder.typicode.com/posts'; // URL factice pour l'exemple
-    let isOnline = navigator.onLine;
-    let syncQueue = [];
-    let isSyncing = false;
-
-    // Fonction pour synchroniser les données avec le "serveur"
-    async function syncWithServer() {
-      if (!isOnline) {
-        updateSyncIndicator('offline');
-        return;
-      }
-
-      updateSyncIndicator('syncing');
-      
-      try {
-        // Récupérer les données du serveur (simulation)
-        const serverData = await fetchServerData();
-        
-        if (serverData) {
-          // Fusionner les données locales avec les données du serveur
-          mergeData(serverData);
-          saveData();
-          showNotification('Données synchronisées avec succès', 'success');
-        }
-        
-        // Envoyer les données locales au serveur (simulation)
-        await sendLocalData();
-        
-        updateSyncIndicator('synced');
-      } catch (error) {
-        console.error('Erreur de synchronisation:', error);
-        updateSyncIndicator('error');
-        showNotification('Erreur de synchronisation', 'error');
-      }
-    }
-
-    // Simulation de récupération des données du serveur
-    async function fetchServerData() {
-      // En production, remplacer par un vrai appel API
-      const savedServerData = localStorage.getItem('serverData');
-      return savedServerData ? JSON.parse(savedServerData) : { patients: [], consultations: [] };
-    }
-
-    // Simulation d'envoi des données au serveur
-    async function sendLocalData() {
-      const dataToSend = {
-        patients: patients,
-        consultations: consultations,
-        timestamp: new Date().toISOString()
-      };
-      
-      // En production, remplacer par un vrai appel API
-      localStorage.setItem('serverData', JSON.stringify(dataToSend));
-      return true;
-    }
-
-    // Fusionner les données
-    function mergeData(serverData) {
-      // Fusionner les patients
-      serverData.patients.forEach(serverPatient => {
-        const localPatientIndex = patients.findIndex(p => p.id === serverPatient.id);
-        
-        if (localPatientIndex === -1) {
-          // Patient non présent localement, l'ajouter
-          patients.push(serverPatient);
-        } else {
-          // Patient présent localement, garder la version la plus récente
-          const localPatient = patients[localPatientIndex];
-          const serverDate = new Date(serverPatient.updatedAt || serverPatient.createdAt);
-          const localDate = new Date(localPatient.updatedAt || localPatient.createdAt);
-          
-          if (serverDate > localDate) {
-            patients[localPatientIndex] = serverPatient;
-          }
-        }
-      });
-
-      // Fusionner les consultations
-      serverData.consultations.forEach(serverConsultation => {
-        const localConsultationIndex = consultations.findIndex(c => c.id === serverConsultation.id);
-        
-        if (localConsultationIndex === -1) {
-          consultations.push(serverConsultation);
-        } else {
-          const localConsultation = consultations[localConsultationIndex];
-          const serverDate = new Date(serverConsultation.updatedAt || serverConsultation.createdAt);
-          const localDate = new Date(localConsultation.updatedAt || localConsultation.createdAt);
-          
-          if (serverDate > localDate) {
-            consultations[localConsultationIndex] = serverConsultation;
-          }
-        }
-      });
-    }
-
-    // Mettre à jour l'indicateur de synchronisation
-    function updateSyncIndicator(status) {
-      const indicator = document.getElementById('syncIndicator');
-      if (!indicator) return;
-      
-      indicator.classList.remove('hidden', 'syncing', 'synced', 'error');
-      
-      switch(status) {
-        case 'syncing':
-          indicator.innerHTML = '<i class="fas fa-sync fa-spin"></i> <span>Synchronisation...</span>';
-          indicator.classList.add('syncing');
-          break;
-        case 'synced':
-          indicator.innerHTML = '<i class="fas fa-check-circle"></i> <span>Synchronisé</span>';
-          indicator.classList.add('synced');
-          setTimeout(() => indicator.classList.add('hidden'), 3000);
-          break;
-        case 'error':
-          indicator.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Erreur de sync</span>';
-          indicator.classList.add('error');
-          break;
-        case 'offline':
-          indicator.innerHTML = '<i class="fas fa-wifi-slash"></i> <span>Hors ligne</span>';
-          break;
-      }
-      
-      indicator.classList.remove('hidden');
-    }
-
-    // Vérifier la connexion réseau
-    window.addEventListener('online', () => {
-      isOnline = true;
-      updateSyncIndicator('syncing');
-      setTimeout(syncWithServer, 1000);
-    });
-
-    window.addEventListener('offline', () => {
-      isOnline = false;
-      updateSyncIndicator('offline');
-    });
 
     // ================================
     // FONCTIONS UTILITAIRES
@@ -2226,34 +1717,6 @@
     function updateStoredUser(user) {
       storedUser = user;
       localStorage.setItem('storedUser', JSON.stringify(user));
-    }
-
-    // ================================
-    // NOUVELLE FONCTIONNALITÉ : GESTION DU SANG
-    // ================================
-    function selectBloodGroup(group) {
-      selectedBloodGroup = group;
-      document.getElementById('patientBloodGroup').value = group;
-      
-      // Mettre à jour l'interface
-      document.querySelectorAll('.blood-group-btn').forEach(btn => {
-        btn.classList.remove('selected');
-        if (btn.textContent === group) {
-          btn.classList.add('selected');
-        }
-      });
-    }
-
-    function selectEditBloodGroup(group) {
-      selectedEditBloodGroup = group;
-      document.getElementById('editPatientBloodGroup').value = group;
-      
-      document.querySelectorAll('#editPatientForm .blood-group-btn').forEach(btn => {
-        btn.classList.remove('selected');
-        if (btn.textContent === group) {
-          btn.classList.add('selected');
-        }
-      });
     }
 
     // ================================
@@ -2333,8 +1796,8 @@
       }
       
       const newUser = {
-        firstName: document.getElementById('regFirstName').value.toUpperCase(),
-        lastName: document.getElementById('regLastName').value.toUpperCase(),
+        firstName: document.getElementById('regFirstName').value,
+        lastName: document.getElementById('regLastName').value,
         username: document.getElementById('regUsername').value,
         email: document.getElementById('regEmail').value,
         phone: document.getElementById('regPhone').value,
@@ -2495,8 +1958,6 @@
           document.getElementById('prescriptionContent').value = currentPrescription || '';
           const editorAlert = document.getElementById('editorAlert');
           if (editorAlert) editorAlert.innerHTML = '';
-          updatePatientInfoHeader();
-          loadServiceTemplates();
           break;
         case 'settings':
           const settingsMenu = document.getElementById('settingsMenu');
@@ -2509,14 +1970,6 @@
             }
           });
           populateProfileForm();
-          break;
-        case 'newConsultation':
-          selectedBloodGroup = '';
-          document.querySelectorAll('.blood-group-btn').forEach(btn => {
-            btn.classList.remove('selected');
-          });
-          document.getElementById('patientBloodGroup').value = '';
-          document.getElementById('patientRhesus').value = '';
           break;
       }
     }
@@ -2568,116 +2021,6 @@
     }
 
     // ================================
-    // NOUVELLE FONCTIONNALITÉ : EN-TÊTE PATIENT
-    // ================================
-    function updatePatientInfoHeader() {
-      if (!currentPatient) return;
-      
-      const header = document.getElementById('patientInfoHeader');
-      const content = document.getElementById('patientInfoContent');
-      
-      if (!header || !content) return;
-      
-      header.classList.remove('hidden');
-      
-      const ageDisplay = currentPatient.ageUnit ? 
-        `${currentPatient.age} ${currentPatient.ageUnit}` : 
-        `${currentPatient.age} ans`;
-      
-      content.innerHTML = `
-        <div class="patient-info-item">
-          <label><i class="fas fa-id-card"></i> ID Patient</label>
-          <p>${currentPatient.id}</p>
-        </div>
-        <div class="patient-info-item">
-          <label><i class="fas fa-user"></i> Nom Complet</label>
-          <p>${currentPatient.name}</p>
-        </div>
-        <div class="patient-info-item">
-          <label><i class="fas fa-birthday-cake"></i> Âge</label>
-          <p>${ageDisplay}</p>
-        </div>
-        <div class="patient-info-item">
-          <label><i class="fas fa-venus-mars"></i> Sexe</label>
-          <p>${currentPatient.gender === 'M' ? 'Masculin' : 'Féminin'}</p>
-        </div>
-        <div class="patient-info-item">
-          <label><i class="fas fa-tint"></i> Groupe Sanguin</label>
-          <p>${currentPatient.bloodGroup || 'N/A'}</p>
-        </div>
-        <div class="patient-info-item">
-          <label><i class="fas fa-plus-circle"></i> Rhésus</label>
-          <p>${currentPatient.rhesus || 'N/A'}</p>
-        </div>
-      `;
-    }
-
-    // ================================
-    // NOUVELLE FONCTIONNALITÉ : MODIFIER PATIENT
-    // ================================
-    function showEditPatientModal() {
-      if (!currentPatient) {
-        showNotification('Aucun patient sélectionné', 'error');
-        return;
-      }
-      
-      // Remplir le formulaire avec les données actuelles
-      document.getElementById('editPatientName').value = currentPatient.name;
-      document.getElementById('editPatientGender').value = currentPatient.gender === 'M' ? 'Masculin' : 'Féminin';
-      document.getElementById('editPatientAge').value = currentPatient.age;
-      document.getElementById('editPatientAgeUnit').value = currentPatient.ageUnit || 'ans';
-      document.getElementById('editPatientProfession').value = currentPatient.profession || '';
-      document.getElementById('editPatientPhone').value = currentPatient.phone || '';
-      document.getElementById('editPatientAddress').value = currentPatient.address || '';
-      
-      // Groupe sanguin
-      selectedEditBloodGroup = currentPatient.bloodGroup || '';
-      document.getElementById('editPatientBloodGroup').value = selectedEditBloodGroup;
-      document.querySelectorAll('#editPatientForm .blood-group-btn').forEach(btn => {
-        btn.classList.remove('selected');
-        if (btn.textContent === selectedEditBloodGroup) {
-          btn.classList.add('selected');
-        }
-      });
-      
-      document.getElementById('editPatientRhesus').value = currentPatient.rhesus || '';
-      
-      // Afficher le modal
-      document.getElementById('editPatientModal').classList.remove('hidden');
-    }
-
-    function closeEditPatientModal() {
-      document.getElementById('editPatientModal').classList.add('hidden');
-      document.getElementById('editPatientAlert').innerHTML = '';
-    }
-
-    document.getElementById('editPatientForm').onsubmit = function(e) {
-      e.preventDefault();
-      
-      // Mettre à jour le patient
-      currentPatient.age = document.getElementById('editPatientAge').value;
-      currentPatient.ageUnit = document.getElementById('editPatientAgeUnit').value;
-      currentPatient.profession = document.getElementById('editPatientProfession').value.toUpperCase();
-      currentPatient.phone = document.getElementById('editPatientPhone').value;
-      currentPatient.address = document.getElementById('editPatientAddress').value.toUpperCase();
-      currentPatient.bloodGroup = document.getElementById('editPatientBloodGroup').value;
-      currentPatient.rhesus = document.getElementById('editPatientRhesus').value;
-      currentPatient.updatedAt = new Date().toISOString();
-      
-      // Mettre à jour dans la liste des patients
-      const patientIndex = patients.findIndex(p => p.id === currentPatient.id);
-      if (patientIndex !== -1) {
-        patients[patientIndex] = currentPatient;
-      }
-      
-      saveData();
-      updatePatientInfoHeader();
-      
-      showNotification('Informations du patient mises à jour', 'success');
-      closeEditPatientModal();
-    };
-
-    // ================================
     // FONCTIONS DE L'APPLICATION
     // ================================
     function startApp() {
@@ -2696,9 +2039,6 @@
       // Initialiser les débounceurs
       window.debouncedSearch = debounce(searchPatients, 300);
       window.debouncedUpdateStats = debounce(updateStats, 300);
-      
-      // Synchroniser avec le serveur
-      setTimeout(syncWithServer, 2000);
     }
 
     // ================================
@@ -2706,40 +2046,28 @@
     // ================================
     document.getElementById('newPatientForm').onsubmit = function(e) {
       e.preventDefault();
-      const patientName = document.getElementById('patientName').value.trim().toUpperCase();
-      const patientId = 'PAT-' + Date.now().toString().slice(-6);
+      const patientName = document.getElementById('patientName').value.trim();
+      const patientId = patientName.substring(0, 3).toUpperCase() + Date.now().toString().slice(-4);
       
-      // Vérifier si le patient existe déjà (interopérabilité)
-      const existingPatient = patients.find(p => p.name.toUpperCase() === patientName.toUpperCase());
+      const existingPatient = patients.find(p => p.name.toLowerCase() === patientName.toLowerCase());
       
-      if (existingPatient) {
-        currentPatient = existingPatient;
-        showAlert('newConsultAlert', `Le patient "${patientName}" (ID: ${existingPatient.id}) existe déjà. Voulez-vous continuer avec ce patient?`, 'info');
-        
-        // Mettre à jour l'en-tête du patient
-        setTimeout(() => {
-          updatePatientInfoHeader();
-          navigateTo('prescriptionEditor');
-        }, 1000);
-        return;
-      }
-
       const patient = {
         id: patientId,
         name: patientName,
         age: document.getElementById('patientAge').value,
-        ageUnit: document.getElementById('patientAgeUnit').value,
         gender: document.getElementById('patientGender').value,
-        profession: document.getElementById('patientProfession').value.toUpperCase(),
+        profession: document.getElementById('patientProfession').value,
         phone: document.getElementById('patientPhone').value,
-        address: document.getElementById('patientAddress').value.toUpperCase(),
-        bloodGroup: document.getElementById('patientBloodGroup').value,
-        rhesus: document.getElementById('patientRhesus').value,
+        address: document.getElementById('patientAddress').value,
         service: document.getElementById('serviceType').value,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+        createdAt: new Date().toISOString()
       };
       
+      if (existingPatient) {
+        showAlert('newConsultAlert', `Le patient "${patient.name}" (ID: ${existingPatient.id}) existe déjà. Veuillez utiliser la section 'Ancienne Consultation'.`, 'error');
+        return;
+      }
+
       currentPatient = patient;
       patients.push(patient);
       saveData();
@@ -2750,58 +2078,6 @@
 
       navigateTo('prescriptionEditor');
     };
-
-    // ================================
-    // NOUVELLE FONCTIONNALITÉ : TEMPLATES PAR SERVICE
-    // ================================
-    function loadServiceTemplates() {
-      const templateButtons = document.getElementById('templateButtons');
-      if (!templateButtons) return;
-      
-      templateButtons.innerHTML = '';
-      
-      const service = storedUser?.service || 'Consultation générale';
-      
-      const templates = {
-        'Cardiologie': [
-          { name: 'ECG', content: 'ECG :\n- Fréquence cardiaque: ___ bpm\n- Rythme: ___ \n- Ondes P: ___ \n- Complexe QRS: ___ \n- Segment ST: ___ \n- Onde T: ___ \n- Intervalle QT: ___ ms\n\nConclusion: ___' },
-          { name: 'Échocardiographie', content: 'ÉCHOGRAPHIE CARDIAQUE :\n\nDimensions (mm):\n- VG télédiastolique: ___\n- VG télésystolique: ___\n- OG: ___\n- OD: ___\n\nFonction VG:\n- FE: ___%\n- Fraction de raccourcissement: ___%\n\nValvulopathies: ___' },
-          { name: 'Holter', content: 'HOLTER ECG 24H :\n\nRythme de base: ___\nFC min: ___ bpm\nFC max: ___ bpm\nFC moyenne: ___ bpm\n\nExtrasystoles:\n- SVES: ___/24h\n- VES: ___/24h\n\nPauses: ___ (max ___ ms)\n\nConclusion: ___' }
-        ],
-        'Ophtalmologie': [
-          { name: 'Acuité Visuelle', content: 'ACUITÉ VISUELLE :\n\nOD: ___/10 sans correction\n      ___/10 avec correction\n\nOG: ___/10 sans correction\n      ___/10 avec correction\n\nAddition: ___' },
-          { name: 'Tension Oculaire', content: 'TONOMÉTRIE :\n\nOD: ___ mmHg\nOG: ___ mmHg\n\nHeure de mesure: ___:___\n\nMéthode: ___' },
-          { name: 'Fond d\'œil', content: 'FOND D\'ŒIL :\n\nPapille: ___\nVaisseaux: ___\nRétine périphérique: ___\nMacula: ___\n\nConclusion: ___' }
-        ],
-        'Urgences': [
-          { name: 'Traumatologie', content: 'TRAUMATOLOGIE :\n\nMécanisme: ___\nHeure: ___:___\n\nExamen:\n- Glasgow: ___/15\n- TA: ___/___ mmHg\n- FC: ___ bpm\n- SpO2: ___%\n- Glycémie: ___ g/L\n\nLésions: ___\n\nConduite à tenir: ___' },
-          { name: 'Médecine', content: 'URGENCES MÉDICALES :\n\nMotif: ___\n\nAntécédents: ___\n\nExamen:\n- TA: ___/___ mmHg\n- FC: ___ bpm\n- Temp: ___°C\n- FR: ___/min\n- SpO2: ___%\n- EVA: ___/10\n\nDiagnostic: ___\nTraitement: ___' }
-        ],
-        'Médecine Interne': [
-          { name: 'Bilan Standard', content: 'BILAN BIOLOGIQUE :\n\nNFS:\n- GB: ___ G/L\n- Hb: ___ g/dL\n- Hte: ___%\n- Plaquettes: ___ G/L\n\nBiochimie:\n- Glycémie: ___ g/L\n- Urée: ___ mmol/L\n- Créatinine: ___ μmol/L\n- Na: ___ mmol/L\n- K: ___ mmol/L\n\nConclusion: ___' }
-        ]
-      };
-      
-      const serviceTemplates = templates[service] || templates['Médecine Interne'];
-      
-      serviceTemplates.forEach(template => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'btn btn-outline';
-        button.innerHTML = `<i class="fas fa-file-medical"></i> ${template.name}`;
-        button.onclick = () => insertTemplate(template.content);
-        templateButtons.appendChild(button);
-      });
-    }
-
-    function insertTemplate(content) {
-      const textarea = document.getElementById('prescriptionContent');
-      if (textarea) {
-        textarea.value += '\n\n' + content + '\n';
-        textarea.focus();
-        showNotification('Template inséré', 'success');
-      }
-    }
 
     // ================================
     // PRESCRIPTION
@@ -2819,10 +2095,10 @@
         patientNameDisplay.textContent = `${currentPatient.name} (ID: ${currentPatient.id})`;
       }
       
-      document.getElementById('doctorName').value = `${storedUser.firstName} ${storedUser.lastName}`.toUpperCase();
+      document.getElementById('doctorName').value = `${storedUser.firstName} ${storedUser.lastName}`;
       document.getElementById('doctorContact').value = storedUser.phone || storedUser.email;
       document.getElementById('doctorService').value = storedUser.service;
-      document.getElementById('consultationCenter').value = 'CENTRE HOSPITALIER UNIVERSITAIRE';
+      document.getElementById('consultationCenter').value = 'Centre de Consultation par défaut (Modifiez si nécessaire)';
 
       const editorAlert = document.getElementById('editorAlert');
       if (editorAlert) editorAlert.innerHTML = '';
@@ -2837,10 +2113,10 @@
         return;
       }
       
-      const diseaseType = document.getElementById('diseaseType').value.toUpperCase();
+      const diseaseType = document.getElementById('diseaseType').value;
       const doctorName = document.getElementById('doctorName').value;
       const doctorService = document.getElementById('doctorService').value;
-      const consultationCenter = document.getElementById('consultationCenter').value.toUpperCase();
+      const consultationCenter = document.getElementById('consultationCenter').value;
       
       if (!diseaseType || !doctorName || !doctorService || !consultationCenter) {
         showNotification('Veuillez remplir tous les champs obligatoires du Résumé Médical (marqués par *).', 'error');
@@ -2855,27 +2131,22 @@
         treatmentDuration: 0,
         prescriptionContent: currentPrescription,
         disease: diseaseType,
-        observations: document.getElementById('summaryText').value.toUpperCase(),
+        observations: document.getElementById('summaryText').value,
         doctorName: doctorName,
         doctorContact: document.getElementById('doctorContact').value,
         service: doctorService,
         center: consultationCenter,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+        createdAt: new Date().toISOString()
       };
 
       consultations.push(consultation);
       saveData();
       
-      // Synchroniser avec le serveur
-      syncWithServer();
-      
-      showNotification(`Consultation enregistrée pour le patient ${consultation.patientId} !`, 'success');
-      
-      // Réinitialiser
       currentPatient = null;
       currentPrescription = '';
-      document.getElementById('patientInfoHeader').classList.add('hidden');
+
+      showNotification(`Consultation enregistrée pour le patient ${consultation.patientId} !`, 'success');
+      document.getElementById('medicalSummary').reset();
       
       // Animation de succès
       const saveBtn = document.querySelector('#medicalSummary .btn-primary');
@@ -2891,7 +2162,7 @@
     }
 
     // ================================
-    // RECHERCHE DE PATIENTS (AMÉLIORÉE POUR INTEROPÉRABILITÉ)
+    // RECHERCHE DE PATIENTS
     // ================================
     function searchPatients() {
       const query = document.getElementById('searchInput').value.toLowerCase();
@@ -2912,8 +2183,19 @@
       if (searchLoader) searchLoader.classList.remove('hidden');
 
       setTimeout(() => {
-        // RECHERCHE GLOBALE (tous les services) pour l'interopérabilité
-        let patientsToShow = patients.slice();
+        const patientIdsInService = new Set(
+          consultations.filter(c => c.service === serviceDuSoignant).map(c => c.patientId)
+        );
+        
+        const patientsInService = patients.filter(p => patientIdsInService.has(p.id));
+        
+        let patientsToShow = patientsInService.slice().sort((a, b) => {
+          const lastA = consultations.filter(c => c.patientId === a.id && c.service === serviceDuSoignant)
+            .sort((x, y) => new Date(y.date) - new Date(x.date))[0]?.date || '1970-01-01';
+          const lastB = consultations.filter(c => c.patientId === b.id && c.service === serviceDuSoignant)
+            .sort((x, y) => new Date(y.date) - new Date(x.date))[0]?.date || '1970-01-01';
+          return new Date(lastB) - new Date(lastA);
+        });
         
         if (query.length >= 2) {
           patientsToShow = patientsToShow.filter(p => 
@@ -2922,21 +2204,12 @@
             (p.phone && p.phone.toLowerCase().includes(query))
           );
         } else {
-          patientsToShow = patientsToShow.slice(0, 15);
+          patientsToShow = patientsToShow.slice(0, 10);
         }
-        
-        // Trier par date de dernière consultation (tous services confondus)
-        patientsToShow.sort((a, b) => {
-          const lastA = consultations.filter(c => c.patientId === a.id)
-            .sort((x, y) => new Date(y.date) - new Date(x.date))[0]?.date || '1970-01-01';
-          const lastB = consultations.filter(c => c.patientId === b.id)
-            .sort((x, y) => new Date(y.date) - new Date(x.date))[0]?.date || '1970-01-01';
-          return new Date(lastB) - new Date(lastA);
-        });
 
         if (searchLoader) searchLoader.classList.add('hidden');
 
-        if (patientsToShow.length === 0) {
+        if (patientsInService.length === 0 || patientsToShow.length === 0) {
           if (noResults) {
             noResults.classList.remove('hidden');
           }
@@ -2945,22 +2218,17 @@
           }
         } else {
           const resultsHtml = patientsToShow.map(p => {
-            // Trouver toutes les consultations de ce patient (tous services)
-            const patientConsultations = consultations.filter(c => c.patientId === p.id);
-            const lastConsultation = patientConsultations
+            const lastConsultation = consultations
+              .filter(c => c.patientId === p.id && c.service === serviceDuSoignant)
               .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
               
             const lastConsultDate = lastConsultation ? new Date(lastConsultation.date).toLocaleDateString('fr-FR') : 'N/A';
-            const serviceCount = new Set(patientConsultations.map(c => c.service)).size;
             
             return `
             <div class="patient-search-card" onclick="showPatientDetails('${p.id}')">
               <div class="patient-info">
                 <h4>${p.name}</h4>
-                <p>${p.age} ${p.ageUnit || 'ans'} • ${p.gender === 'M' ? 'Homme' : 'Femme'} • ID: ${p.id}</p>
-                <small class="text-primary">
-                  <i class="fas fa-hospital"></i> ${serviceCount} service(s) consulté(s)
-                </small>
+                <p>${p.age} ans • ${p.gender === 'M' ? 'Homme' : 'Femme'} • ID: ${p.id}</p>
               </div>
               <div class="text-right">
                 <small>Dernière consult. : ${lastConsultDate}</small>
@@ -3000,11 +2268,6 @@
       const patientDetails = document.getElementById('patientDetails');
       if (patientDetails) {
         patientDetails.classList.remove('hidden');
-        
-        const ageDisplay = currentPatient.ageUnit ? 
-          `${currentPatient.age} ${currentPatient.ageUnit}` : 
-          `${currentPatient.age} ans`;
-        
         patientDetails.innerHTML = `
           <div class="details-grid">
             <div class="detail-item">
@@ -3017,19 +2280,11 @@
             </div>
             <div class="detail-item">
               <label>Âge</label>
-              <p>${ageDisplay}</p>
+              <p>${currentPatient.age} ans</p>
             </div>
             <div class="detail-item">
               <label>Sexe</label>
               <p>${currentPatient.gender === 'M' ? 'Masculin' : 'Féminin'}</p>
-            </div>
-            <div class="detail-item">
-              <label>Groupe Sanguin</label>
-              <p>${currentPatient.bloodGroup || 'N/A'}</p>
-            </div>
-            <div class="detail-item">
-              <label>Rhésus</label>
-              <p>${currentPatient.rhesus || 'N/A'}</p>
             </div>
             <div class="detail-item">
               <label>Profession</label>
@@ -3090,13 +2345,12 @@
         .sort((a, b) => new Date(b.date) - new Date(a.date));
 
       if (!showAll) {
-        // Pour l'interopérabilité, montrer toutes les consultations mais mettre en évidence celles du service actuel
-        patientConsultations = patientConsultations;
+        patientConsultations = patientConsultations.filter(c => c.service === serviceDuSoignant);
       }
       
       let historyHtml = `<h3 class="details-section-header">
         <i class="fas fa-calendar-check"></i>
-        ${showAll ? 'Historique complet' : `Historique (Tous services)`} 
+        ${showAll ? 'Historique complet' : `Historique (${serviceDuSoignant})`} 
         <span class="badge">${patientConsultations.length}</span>
       </h3>`;
       
@@ -3104,9 +2358,9 @@
         historyHtml += `<p class="text-gray text-center py-4">Aucune consultation trouvée.</p>`;
       } else {
         patientConsultations.forEach((c, index) => {
-          const isCurrentService = c.service === serviceDuSoignant;
-          const cardClass = `consultation-item ${isCurrentService ? '' : 'other-service'}`;
-          const serviceNote = `<span class="consultation-service">${c.service}</span>`;
+          const isOtherService = c.service !== serviceDuSoignant;
+          const cardClass = `consultation-item ${isOtherService ? 'other-service' : ''}`;
+          const serviceNote = isOtherService ? `<span class="consultation-service">${c.service}</span>` : '';
           
           historyHtml += `
           <div class="${cardClass}">
@@ -3120,16 +2374,15 @@
               <strong><i class="fas fa-disease"></i> Type de Maladie :</strong> ${c.disease || 'N/A'}
             </div>
             <div class="mb-3">
-              <strong><i class="fas fa-user-md"></i> Soignant :</strong> ${c.doctorName || 'N/A'}
-            </div>
-            <div class="mb-3">
               <strong><i class="fas fa-file-prescription"></i> Prescription :</strong>
               <div class="mt-2 p-3 bg-light rounded border">
                 <pre style="margin: 0; white-space: pre-wrap;">${c.prescriptionContent || 'N/A'}</pre>
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+              <div><strong><i class="fas fa-user-md"></i> Soignant :</strong> ${c.doctorName || 'N/A'}</div>
               <div><strong><i class="fas fa-phone"></i> Contact :</strong> ${c.doctorContact || 'N/A'}</div>
+              <div><strong><i class="fas fa-stethoscope"></i> Service :</strong> ${c.service || 'N/A'}</div>
               <div><strong><i class="fas fa-hospital"></i> Centre :</strong> ${c.center || 'N/A'}</div>
             </div>
           </div>
@@ -3145,45 +2398,52 @@
     }
 
     // ================================
-    // ÉDITEUR DE PRESCRIPTION AMÉLIORÉ
+    // ÉDITEUR DE PRESCRIPTION
     // ================================
-    function addWordLikeTable() {
+    function addTable() {
       const contentArea = document.getElementById('prescriptionContent');
       if (!contentArea) return;
       
-      const tableId = 'table-' + Date.now();
-      const tableHTML = `
-\n\n<!-- Début du tableau ${tableId} -->
-<table class="word-like-table">
-  <thead>
-    <tr>
-      <th>Colonne 1</th>
-      <th>Colonne 2</th>
-      <th>Colonne 3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Ligne 1, Cellule 1</td>
-      <td>Ligne 1, Cellule 2</td>
-      <td>Ligne 1, Cellule 3</td>
-    </tr>
-    <tr>
-      <td>Ligne 2, Cellule 1</td>
-      <td>Ligne 2, Cellule 2</td>
-      <td>Ligne 2, Cellule 3</td>
-    </tr>
-    <tr>
-      <td>Ligne 3, Cellule 1</td>
-      <td>Ligne 3, Cellule 2</td>
-      <td>Ligne 3, Cellule 3</td>
-    </tr>
-  </tbody>
-</table>
-<!-- Fin du tableau ${tableId} -->\n\n`;
+      let columns = parseInt(prompt("Nombre de colonnes (max 4):", 3)) || 3;
+      let rows = parseInt(prompt("Nombre de lignes (max 10):", 4)) || 4;
+
+      if (isNaN(columns) || columns < 1 || columns > 4) columns = 3;
+      if (isNaN(rows) || rows < 1 || rows > 10) rows = 4;
+
+      const cellWidth = 15;
+      let tableContent = '\n';
       
-      contentArea.value += tableHTML;
-      showNotification('Tableau Word-like ajouté', 'success');
+      const createSeparator = (cols) => {
+        let sep = '+';
+        for (let i = 0; i < cols; i++) {
+          sep += '-'.repeat(cellWidth + 2) + '+';
+        }
+        return sep;
+      };
+
+      const createRow = (cols, isHeader = false, rowNum = 0) => {
+        let row = '|';
+        for (let i = 0; i < cols; i++) {
+          let cellContent = isHeader ? `COL ${i + 1}` : `L${rowNum}C${i + 1}`;
+          if (cellContent.length > cellWidth) {
+            cellContent = cellContent.substring(0, cellWidth);
+          } else {
+            cellContent = cellContent + ' '.repeat(cellWidth - cellContent.length);
+          }
+          row += ` ${cellContent} |`;
+        }
+        return row;
+      };
+
+      tableContent += createSeparator(columns) + '\n';
+      tableContent += createRow(columns, true) + '\n';
+      tableContent += createSeparator(columns) + '\n';
+      for (let i = 1; i <= rows; i++) {
+        tableContent += createRow(columns, false, i) + '\n';
+      }
+      tableContent += createSeparator(columns) + '\n';
+      
+      contentArea.value += tableContent;
     }
 
     function addSection() {
@@ -3195,103 +2455,6 @@
         const newSection = `\n\n=== ${sectionTitle.toUpperCase()} ===\n\n`;
         contentArea.value += newSection;
       }
-    }
-
-    // ================================
-    // NOUVELLE FONCTIONNALITÉ : EXPORT PDF/WORD
-    // ================================
-    async function exportToPDF() {
-      if (!currentPatient) {
-        showNotification('Aucun patient sélectionné', 'error');
-        return;
-      }
-      
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      
-      // En-tête
-      doc.setFontSize(20);
-      doc.setTextColor(67, 97, 238);
-      doc.text('PRESCRIPTION MÉDICALE', 105, 20, null, null, 'center');
-      
-      doc.setFontSize(12);
-      doc.setTextColor(0, 0, 0);
-      doc.text(`Patient: ${currentPatient.name}`, 20, 40);
-      doc.text(`ID: ${currentPatient.id}`, 20, 48);
-      doc.text(`Date: ${new Date().toLocaleDateString('fr-FR')}`, 20, 56);
-      doc.text(`Service: ${storedUser?.service || 'N/A'}`, 20, 64);
-      doc.text(`Médecin: ${storedUser?.firstName || ''} ${storedUser?.lastName || ''}`, 20, 72);
-      
-      // Ligne de séparation
-      doc.setDrawColor(67, 97, 238);
-      doc.setLineWidth(0.5);
-      doc.line(20, 80, 190, 80);
-      
-      // Contenu de la prescription
-      doc.setFontSize(11);
-      const prescriptionText = document.getElementById('prescriptionContent').value;
-      const splitText = doc.splitTextToSize(prescriptionText, 170);
-      doc.text(splitText, 20, 90);
-      
-      // Pied de page
-      doc.setFontSize(10);
-      doc.setTextColor(128, 128, 128);
-      doc.text('Document généré par MediTrack Pro', 105, 280, null, null, 'center');
-      
-      // Sauvegarder le PDF
-      doc.save(`Prescription_${currentPatient.id}_${new Date().toISOString().split('T')[0]}.pdf`);
-      showNotification('PDF généré avec succès', 'success');
-    }
-
-    function exportToWord() {
-      if (!currentPatient) {
-        showNotification('Aucun patient sélectionné', 'error');
-        return;
-      }
-      
-      const prescriptionText = document.getElementById('prescriptionContent').value;
-      
-      // Créer le contenu HTML pour le document Word
-      const htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-          <style>
-            body { font-family: Arial, sans-serif; margin: 40px; }
-            .header { color: #4361ee; font-size: 24px; text-align: center; margin-bottom: 30px; }
-            .patient-info { margin-bottom: 20px; padding: 15px; background: #f5f5f5; border-radius: 5px; }
-            .prescription-content { white-space: pre-wrap; font-family: 'Courier New', monospace; margin-top: 20px; }
-            .footer { margin-top: 40px; text-align: center; color: #666; font-size: 12px; }
-          </style>
-        </head>
-        <body>
-          <div class="header">PRESCRIPTION MÉDICALE</div>
-          <div class="patient-info">
-            <strong>Patient:</strong> ${currentPatient.name}<br>
-            <strong>ID:</strong> ${currentPatient.id}<br>
-            <strong>Date:</strong> ${new Date().toLocaleDateString('fr-FR')}<br>
-            <strong>Service:</strong> ${storedUser?.service || 'N/A'}<br>
-            <strong>Médecin:</strong> ${storedUser?.firstName || ''} ${storedUser?.lastName || ''}
-          </div>
-          <div class="prescription-content">${prescriptionText}</div>
-          <div class="footer">Document généré par MediTrack Pro</div>
-        </body>
-        </html>
-      `;
-      
-      // Créer un blob et un lien de téléchargement
-      const blob = new Blob([htmlContent], { type: 'application/msword' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Prescription_${currentPatient.id}_${new Date().toISOString().split('T')[0]}.doc`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      showNotification('Document Word généré avec succès', 'success');
     }
 
     // ================================
@@ -3308,16 +2471,15 @@
       }
 
       const allServices = [
-        'Anesthésie-Réanimation', 'Anatomo-pathologie', 'Administration', 'Autre',
-        'Cardiologie', 'Chirurgie générale', 'Chirurgie pédiatrique', 'Chirurgie Viscérale',
-        'Consultation générale', 'Dermatologie', 'Gastroentérologie', 'Gynécologie',
-        'Hématologie', 'Infertilité', 'Kinésithérapie', 'Laboratoire', 'Médecine Interne',
-        'Néphrologie', 'Neurochirurgie', 'Neurologie', 'Odontologie/Stomatologie',
-        'Ophtalmologie', 'Optométrie', 'ORL', 'Pédiatrie', 'Pneumologie', 'Psychiatrie',
-        'Radiologie/Imagerie médicale', 'Réanimation médicale et polysalle', 'Rhumatologie',
-        'Sage-femme/Obstétrique', 'Scanner', 'Transfusion sanguine', 'Traumatologie',
-        'Urgences', 'Urologie'
-      ].sort(); // Tri alphabétique
+        'Urgences', 'Consultation générale', 'Médecine Interne', 'Cardiologie', 'Pneumologie', 
+        'Rhumatologie', 'Neurologie', 'Néphrologie', 'Dermatologie', 'Hématologie', 
+        'Pédiatrie', 'Traumatologie', 'Urologie', 'Anesthésie-Réanimation', 'Ophtalmologie', 
+        'Radiologie/Imagerie médicale', 'Anatomo-pathologie', 'Odontologie/Stomatologie', 
+        'Gynécologie', 'Laboratoire', 'Kinésithérapie', 'Optométrie', 'Sage-femme/Obstétrique', 
+        'ORL', 'Psychiatrie', 'Gastroentérologie', 'Neurochirurgie', 'Infertilité', 
+        'Chirurgie générale', 'Chirurgie pédiatrique', 'Chirurgie Viscérale', 
+        'Réanimation médicale et polysalle', 'Scanner', 'Transfusion sanguine', 'Administration', 'Autre'
+      ];
       
       const serviceFilter = document.getElementById('serviceFilter');
       if (serviceFilter) {
@@ -3329,7 +2491,7 @@
     }
 
     function updateStats() {
-      const diseaseSearch = document.getElementById('diseaseSearchInput')?.value.toUpperCase() || '';
+      const diseaseSearch = document.getElementById('diseaseSearchInput')?.value.toLowerCase() || '';
       const dateStart = document.getElementById('dateFilterStart')?.value || '';
       const dateEnd = document.getElementById('dateFilterEnd')?.value || '';
       const centerFilterValue = document.getElementById('centerFilter')?.value || 'all';
@@ -3337,7 +2499,7 @@
       
       let filteredConsultations = consultations.filter(c => {
         const consultDate = new Date(c.date);
-        if (diseaseSearch && !c.disease.toUpperCase().includes(diseaseSearch)) return false;
+        if (diseaseSearch && !c.disease.toLowerCase().includes(diseaseSearch)) return false;
         if (dateStart && consultDate < new Date(dateStart)) return false;
         if (dateEnd) {
           const endDate = new Date(dateEnd);
@@ -3415,23 +2577,13 @@
     }
 
     // ================================
-    // SAUVEGARDE ET CHARGEMENT (AMÉLIORÉ POUR INTEROPÉRABILITÉ)
+    // SAUVEGARDE ET CHARGEMENT
     // ================================
     function saveData() {
-      const data = { 
-        patients, 
-        consultations,
-        lastSync: new Date().toISOString()
-      };
+      const data = { patients, consultations };
       localStorage.setItem('medicalData', JSON.stringify(data));
       updateStats();
       populateRegistryFilters();
-      
-      // Ajouter à la file d'attente de synchronisation
-      syncQueue.push(data);
-      if (!isSyncing) {
-        syncWithServer();
-      }
     }
 
     function loadData() {
@@ -3445,17 +2597,6 @@
           console.error('Erreur de chargement des données:', e);
           patients = [];
           consultations = [];
-        }
-      }
-      
-      // Charger également les données du serveur (simulation)
-      const serverData = localStorage.getItem('serverData');
-      if (serverData) {
-        try {
-          const parsedServerData = JSON.parse(serverData);
-          mergeData(parsedServerData);
-        } catch (e) {
-          console.error('Erreur de chargement des données serveur:', e);
         }
       }
     }
@@ -3488,26 +2629,18 @@
         return;
       }
 
-      let csvContent = 'ID Patient,Nom,Âge,Sexe,Groupe Sanguin,Date,Maladie,Service,Centre,Médecin,Prescription\n';
+      let csvContent = 'ID Patient,Nom,Date,Maladie,Service,Centre,Médecin\n';
       
       filteredConsultations.forEach(c => {
         const patient = patients.find(p => p.id === c.patientId);
-        const ageDisplay = patient?.ageUnit ? 
-          `${patient.age} ${patient.ageUnit}` : 
-          `${patient.age} ans`;
-        
         const row = [
           `"${c.patientId}"`,
           `"${patient ? patient.name : 'N/A'}"`,
-          `"${ageDisplay}"`,
-          `"${patient?.gender === 'M' ? 'M' : 'F'}"`,
-          `"${patient?.bloodGroup || 'N/A'}"`,
           `"${c.date}"`,
           `"${c.disease}"`,
           `"${c.service}"`,
           `"${c.center}"`,
-          `"${c.doctorName}"`,
-          `"${c.prescriptionContent.replace(/"/g, '""')}"`
+          `"${c.doctorName}"`
         ].join(',');
         csvContent += row + '\n';
       });
@@ -3600,13 +2733,6 @@
           if (window.debouncedUpdateStats) window.debouncedUpdateStats();
         });
       }
-      
-      // Ajouter un gestionnaire pour les inputs en majuscules
-      document.querySelectorAll('.uppercase-input').forEach(input => {
-        input.addEventListener('input', function() {
-          this.value = this.value.toUpperCase();
-        });
-      });
     };
   </script>
 </body>
