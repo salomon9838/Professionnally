@@ -2736,52 +2736,67 @@
     };
   </script>
 
-  <script>
-  // Fonction pour envoyer les données au Backend
-  async function enregistrerNouvelleFiche(e) {
-    if (e) e.preventDefault(); // Empêche le rechargement de la page
+ <script>
+// Fonction principale pour envoyer les données à Django
+async function enregistrerFicheMedicale(event) {
+    if (event) event.preventDefault();
 
-    // 1. On récupère les valeurs des champs HTML
+    // 1. Récupération des données depuis votre interface HTML
     const patientData = {
-      // Signes Vitaux
-      ta_bras_gauche: document.querySelector('input[placeholder="Ex: 12/8"]')?.value,
-      poids: document.querySelector('input[placeholder="en kg"]')?.value,
-      taille: document.querySelector('input[placeholder="en cm"]')?.value,
-      
-      // Ophtalmologie (AVC, VP, etc.)
-      avc_od: document.querySelector('input[placeholder=".../10"]')?.value,
-      service: document.getElementById('regService')?.value,
-      date_enregistrement: new Date().toISOString()
+        // Informations patient
+        nom: document.getElementById('regLastName')?.value || "Non spécifié",
+        prenom: document.getElementById('regFirstName')?.value || "Non spécifié",
+        email: document.getElementById('regEmail')?.value,
+        telephone: document.getElementById('regPhone')?.value,
+        
+        // Données médicales (Signes vitaux)
+        tension_arterielle: document.querySelector('input[placeholder="Ex: 12/8"]')?.value,
+        poids: document.querySelector('input[placeholder="en kg"]')?.value,
+        taille: document.querySelector('input[placeholder="en cm"]')?.value,
+        
+        // Ophtalmologie (Exemple basé sur vos captures)
+        avc_od: document.querySelector('input[placeholder=".../10"]')?.value,
+        service: document.getElementById('regService')?.value || "Général"
     };
 
-    console.log("Tentative d'envoi :", patientData);
+    console.log("Données envoyées vers Django :", patientData);
+
+    // 2. Envoi vers l'API Django
+    // Remplacez par https://medicalclub.onrender.com/patients/ quand vous êtes en ligne
+    const API_URL = 'http://127.0.0.1:8000/patients/'; 
 
     try {
-      // 2. On appelle le Backend (assurez-vous que le serveur tourne sur le port 3000)
-      const response = await fetch('http://localhost:3000/api/patients', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(patientData)
-      });
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(patientData)
+        });
 
-      if (response.ok) {
         const result = await response.json();
-        alert("Succès : " + result.message);
-        console.log("Réponse du serveur :", result);
-      } else {
-        throw new Error("Erreur serveur : " + response.status);
-      }
-    } catch (error) {
-      // C'est ici que vous verrez les erreurs rouges dans DevTool
-      console.error("Échec de la communication :", error.message);
-      alert("Erreur de connexion au serveur. Vérifiez que le Backend est lancé.");
-    }
-  }
 
-  // Lier la fonction au bouton (adapter l'ID si nécessaire)
-  document.getElementById('registerForm')?.addEventListener('submit', enregistrerNouvelleFiche);
+        if (response.ok) {
+            alert("✅ Succès : " + result.message);
+            console.log("ID du patient créé :", result.id);
+        } else {
+            // Affichage précis des erreurs de validation du Serializer Django
+            console.error("Erreurs de validation :", result);
+            alert("❌ Erreur : Vérifiez la console pour les détails des champs.");
+        }
+    } catch (error) {
+        console.error("Erreur de connexion réseau :", error);
+        alert("❌ Le serveur Django ne répond pas. Vérifiez qu'il est lancé.");
+    }
+}
+
+// Lier la fonction au formulaire
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('registerForm');
+    if (form) {
+        form.addEventListener('submit', enregistrerFicheMedicale);
+    }
+});
 </script>
 </body>
 </html>
