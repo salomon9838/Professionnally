@@ -2736,67 +2736,62 @@
     };
   </script>
 
- <script>
-// Fonction principale pour envoyer les données à Django
-async function enregistrerFicheMedicale(event) {
-    if (event) event.preventDefault();
+<script>
+    // --- CONFIGURATION ---
+    const API_BASE_URL = "http://127.0.0.1:8000/api";
 
-    // 1. Récupération des données depuis votre interface HTML
-    const patientData = {
-        // Informations patient
-        nom: document.getElementById('regLastName')?.value || "Non spécifié",
-        prenom: document.getElementById('regFirstName')?.value || "Non spécifié",
-        email: document.getElementById('regEmail')?.value,
-        telephone: document.getElementById('regPhone')?.value,
-        
-        // Données médicales (Signes vitaux)
-        tension_arterielle: document.querySelector('input[placeholder="Ex: 12/8"]')?.value,
-        poids: document.querySelector('input[placeholder="en kg"]')?.value,
-        taille: document.querySelector('input[placeholder="en cm"]')?.value,
-        
-        // Ophtalmologie (Exemple basé sur vos captures)
-        avc_od: document.querySelector('input[placeholder=".../10"]')?.value,
-        service: document.getElementById('regService')?.value || "Général"
-    };
+    // --- LOGIQUE DE NAVIGATION ---
+    function toggleView(viewId) {
+      // Masque toutes les sections
+      document.querySelectorAll('.content-area').forEach(area => area.classList.remove('active'));
+      // Affiche la section demandée
+      const target = document.getElementById(viewId);
+      if(target) target.classList.add('active');
+    }
 
-    console.log("Données envoyées vers Django :", patientData);
+    // --- FONCTION D'ENVOI (FETCH) ---
+    async function submitPatient(event) {
+      event.preventDefault();
+      
+      const patientData = {
+        nom: document.getElementById('nom')?.value,
+        prenom: document.getElementById('prenom')?.value,
+        // Données issues de vos images manuscrites
+        tension_bg: document.getElementById('ta_bg')?.value,
+        tension_bd: document.getElementById('ta_bd')?.value,
+        poids: document.getElementById('pds')?.value,
+        temperature: document.getElementById('temp')?.value,
+        av_od: document.getElementById('av_od')?.value,
+        av_og: document.getElementById('av_og')?.value
+      };
 
-    // 2. Envoi vers l'API Django
-    // Remplacez par https://medicalclub.onrender.com/patients/ quand vous êtes en ligne
-    const API_URL = 'http://127.0.0.1:8000/patients/'; 
-
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(patientData)
+      try {
+        const response = await fetch(`${API_BASE_URL}/patients/`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(patientData)
         });
 
-        const result = await response.json();
-
         if (response.ok) {
-            alert("✅ Succès : " + result.message);
-            console.log("ID du patient créé :", result.id);
+          showNotification("Patient enregistré avec succès !", "success");
+          document.getElementById('patientForm').reset();
+          toggleView('mainMenu');
         } else {
-            // Affichage précis des erreurs de validation du Serializer Django
-            console.error("Erreurs de validation :", result);
-            alert("❌ Erreur : Vérifiez la console pour les détails des champs.");
+          showNotification("Erreur lors de l'enregistrement", "error");
         }
-    } catch (error) {
-        console.error("Erreur de connexion réseau :", error);
-        alert("❌ Le serveur Django ne répond pas. Vérifiez qu'il est lancé.");
+      } catch (error) {
+        showNotification("Serveur Django injoignable sur le port 8000", "error");
+      }
     }
-}
 
-// Lier la fonction au formulaire
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('registerForm');
-    if (form) {
-        form.addEventListener('submit', enregistrerFicheMedicale);
+    function showNotification(message, type) {
+      const container = document.getElementById('notificationContainer');
+      const notif = document.createElement('div');
+      notif.className = `notification ${type} animate-slideIn`;
+      notif.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check' : 'fa-exclamation-circle'}"></i> ${message}`;
+      container.appendChild(notif);
+      setTimeout(() => notif.remove(), 4000);
     }
-});
-</script>
+  </script>
 </body>
 </html>
