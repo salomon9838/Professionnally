@@ -1,15 +1,15 @@
 from django.urls import path
-from . import views  # Vues de l'application sante
+from . import views 
 
 urlpatterns = [
-    # API Endpoints (JSON pour JavaFX / mobile)
-    path('patients/', views.patients_api, name='patients_api'),
-    path('consultations/', views.consultations_api, name='consultations_api'),
-    path('pathologies/', views.pathologies_api, name='pathologies_api'),
-    path('prescriptions/', views.prescriptions_api, name='prescriptions_api'),
-    path('registre-api/', views.registre_maladies_api, name='registre_api'),
+    # API Endpoints (C'est ici que votre fetch() va frapper)
+    path('api/patients/', views.patients_api, name='patients_api'),
+    path('api/consultations/', views.consultations_api, name='consultations_api'),
+    path('api/pathologies/', views.pathologies_api, name='pathologies_api'),
+    path('api/prescriptions/', views.prescriptions_api, name='prescriptions_api'),
+    path('api/creer-utilisateur/', views.creer_utilisateur, name='creer_utilisateur'),
 
-    # Pages Web (Templates HTML)
+    # Pages Web
     path('', views.solution, name='solution'),
     path('nouvelle/', views.nouvelle_consultation, name='nouvelle'),
     path('ancienne/', views.ancienne_consultation, name='ancienne'),
