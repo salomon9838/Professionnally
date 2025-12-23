@@ -107,3 +107,28 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'https://medicalclub.onrender.com'
 ]
+
+# ==========================================================
+# CONFIGURATION SUPPLÉMENTAIRE POUR MEDITRACK PRO
+# ==========================================================
+
+# 1. Autoriser le Frontend (votre page HTML) à communiquer avec Django
+CORS_ALLOW_ALL_ORIGINS = True  
+
+# 2. Configurer Django REST Framework pour accepter les requêtes sans login pour vos tests
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+}
+
+# 3. Sécurité CSRF pour le déploiement sur Render
+CSRF_TRUSTED_ORIGINS = [
+    'https://medicalclub.onrender.com',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000'
+]
